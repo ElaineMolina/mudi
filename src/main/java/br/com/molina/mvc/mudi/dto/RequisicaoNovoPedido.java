@@ -1,8 +1,10 @@
 package br.com.molina.mvc.mudi.dto;
 
 import br.com.molina.mvc.mudi.model.Pedido;
+import br.com.molina.mvc.mudi.model.StatusPedido;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 public class RequisicaoNovoPedido {
 
@@ -10,9 +12,11 @@ public class RequisicaoNovoPedido {
     private String nomeProduto;
 
     @NotBlank
+    @Size(min = 3, max = 300)
     private String urlProduto;
 
     @NotBlank
+    @Size(min = 3, max = 300)
     private String urlImagem;
     private String descricao;
 
@@ -46,6 +50,10 @@ public class RequisicaoNovoPedido {
         pedido.setNomeProduto(nomeProduto);
         pedido.setUrlImagem(urlImagem);
         pedido.setUrlProduto(urlProduto);
+        pedido.setStatus(StatusPedido.AGUARDANDO);
+        pedido.setStatus(StatusPedido.APROVADO);
+        pedido.setStatus(StatusPedido.ENTREGUE);
+
         return pedido;
     }
 

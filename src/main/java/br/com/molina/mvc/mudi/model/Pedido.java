@@ -1,9 +1,6 @@
 package br.com.molina.mvc.mudi.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
@@ -20,8 +17,19 @@ public class Pedido {
     private String urlImagem;
     private String descricao;
 
+    @Enumerated(EnumType.STRING)
+    private StatusPedido status;
+
     public String getNomeProduto() {
         return nomeProduto;
+    }
+
+    public StatusPedido getStatus() {
+        return status;
+    }
+
+    public void setStatus(StatusPedido status) {
+        this.status = status;
     }
 
     public void setNomeProduto(String nomeProduto) {
