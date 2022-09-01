@@ -9,10 +9,10 @@ import java.time.LocalDate;
 
 @Entity
 public class Pedido {
-    
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String nomeProduto;
     private BigDecimal valorNegociado;
     private LocalDate dataDaEntrega;
@@ -67,4 +67,5 @@ public class Pedido {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
+
 }
